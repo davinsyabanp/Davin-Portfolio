@@ -1,3 +1,11 @@
+// Scroll Progress Bar
+window.addEventListener('scroll', () => {
+    const scrollProgress = document.querySelector('.scroll-progress');
+    const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (window.scrollY / scrollTotal) * 100;
+    scrollProgress.style.width = scrollPercent + '%';
+});
+
 // Typing Effect for Hero Title
 document.addEventListener('DOMContentLoaded', () => {
     const typingElement = document.querySelector('.typing-effect');
