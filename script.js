@@ -256,24 +256,6 @@ if (heroTitle) {
 const scrollTopBtn = document.createElement('button');
 scrollTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
 scrollTopBtn.className = 'scroll-top-btn';
-scrollTopBtn.style.cssText = `
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    font-size: 1.2rem;
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 999;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-`;
 
 document.body.appendChild(scrollTopBtn);
 
@@ -294,13 +276,7 @@ scrollTopBtn.addEventListener('click', () => {
     });
 });
 
-scrollTopBtn.addEventListener('mouseenter', () => {
-    scrollTopBtn.style.transform = 'scale(1.1)';
-});
-
-scrollTopBtn.addEventListener('mouseleave', () => {
-    scrollTopBtn.style.transform = 'scale(1)';
-});
+// Hover effects are handled by CSS
 
 // Parallax Effect for Hero Section
 window.addEventListener('scroll', () => {
