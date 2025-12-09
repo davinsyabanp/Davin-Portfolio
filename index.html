@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Davin's Portfolio - Informatics Engineering Fresh Graduate">
     <title>Davin's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=SF+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -15,11 +18,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <div class="logo">
-                <h2>Davin Sya'ban Perdana</h2>
-            </div>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#organization" class="nav-link">Organization</a></li>
@@ -27,6 +26,9 @@
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <i class="fas fa-moon" id="themeIcon"></i>
+            </button>
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -37,23 +39,13 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <!-- Animated Background Elements -->
-        <div class="hero-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-            <div class="shape shape-4"></div>
-        </div>
-        
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge animate-fade-in">
-                    <i class="fas fa-code"></i>
-                    <span>Front-End Developer</span>
-                </div>
-                <h1 class="hero-title animate-fade-in">Hello, I'm <span class="highlight typing-effect">Davin Sya'ban Perdana</span></h1>
-                    <p class="hero-description animate-fade-in-delay-2">Fresh Graduate in Informatics Engineering who is passionate about creating user-oriented, results-driven, innovative and functional web experiences.</p>
-                <div class="hero-buttons animate-fade-in-delay-3">
+                <p class="hero-greeting">Hi, my name is</p>
+                <h1 class="hero-title">Davin Sya'ban Perdana.</h1>
+                <h2 class="hero-subtitle">I build things for the web.</h2>
+                <p class="hero-description">I'm passionate about creating user-oriented, results-driven, innovative and functional web experiences.</p>
+                <div class="hero-buttons">
                     <a href="https://github.com/davinsyabanp" target="_blank" class="btn btn-github" aria-label="GitHub">
                         <i class="fab fa-github"></i> GitHub
                     </a>
@@ -66,27 +58,30 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Scroll Down Indicator -->
-        <div class="scroll-indicator">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title about">About Me</h2>
             <div class="about-content">
                 <div class="about-image">
+                    <div class="wrapper"></div>
                     <img src="img\100_7366.JPG" alt="Profile Picture">
                 </div>
                 <div class="about-text">
-                    <h3>Web Development & Cloud Computing Enthusiast</h3>
-                    <p>I'm a fresh graduate with a Bachelor's degree in Informatics Engineering, specializing in front-end and back-end web development. I'm passionate about creating intuitive, responsive, and visually appealing user interfaces.</p>
+                    <p>Hello! I'm Davin, a fresh graduate with a Bachelor's degree in Informatics Engineering based in Depok, Indonesia.</p>
+                    <p>As a web development and cloud computing enthusiast, I enjoy creating things that live on the internet, whether that be websites, applications, or anything in between.</p>
                     <p>During my academic journey, I've worked on various projects that helped me develop strong problem-solving skills and a deep understanding of modern web technologies. I'm eager to apply my knowledge and continue learning in a professional environment.</p>
+                    <p style="margin-bottom: 0.5rem;">Here are a few technologies I've been working with recently:</p>
+                    <ul class="tech-list">
+                        <li>JavaScript (ES6+)</li>
+                        <li>HTML & CSS</li>
+                        <li>Python</li>
+                        <li>Go</li>
+                        <li>Node.js</li>
+                        <li>Google Cloud Platform</li>
+                    </ul>
                     <div class="about-info">
                         <div class="info-item">
                             <i class="fas fa-graduation-cap"></i>
@@ -118,7 +113,7 @@
     <!-- Experience Section -->
     <section id="experience" class="experience">
         <div class="container">
-            <h2 class="section-title">Work Experience</h2>
+            <h2 class="section-title experience">Where I've Worked</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
@@ -163,7 +158,7 @@
     <!-- Organizational Section -->
     <section id="organization" class="organization">
         <div class="container">
-            <h2 class="section-title">Organizational Experience</h2>
+            <h2 class="section-title organization">Organizational Experience</h2>
             <div class="org-grid">
                 <div class="org-card">
                     <div class="org-icon">
@@ -189,12 +184,14 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
     </section>
 
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">Skills & Expertise</h2>
+            <h2 class="section-title skills">Skills & Expertise</h2>
             <div class="skills-grid">
                 <div class="skill-category">
                     <h3><i class="fas fa-code"></i> Programming Languages</h3>
@@ -304,16 +301,15 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <h2 class="section-title projects">Some Things I've Built</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="img\mohamed-nohassi--0xMiYQmk8g-unsplash.jpg" alt="Project 1">
-                        <div class="project-overlay">
-                            <!-- <a href="#" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i></a> -->
-                            <a href="https://github.com/davinsyabanp/ppb-ai-chatbot" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/davinsyabanp/ppb-ai-chatbot" target="_blank" class="project-image-link">
+                        <div class="project-image">
+                            <div class="wrapper"></div>
+                            <img src="img\mohamed-nohassi--0xMiYQmk8g-unsplash.jpg" alt="Project 1">
                         </div>
-                    </div>
+                    </a>
                     <div class="project-content">
                         <h3>Language Center Bot</h3>
                         <p>A chatbot application for Language Development Center UIN Syarif Hidayatullah Jakarta that utilizes Retrieval-Augmented Generation (RAG) for enhanced responses, featuring an admin dashboard for knowledge base management.</p>
@@ -327,13 +323,12 @@
                 </div>
 
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="img\abror-alifiano-GbVazUBOsyE-unsplash.jpg" alt="Project 2">
-                        <div class="project-overlay">
-                            <!-- <a href="#" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i></a> -->
-                            <a href="https://github.com/LensFood" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/LensFood" target="_blank" class="project-image-link">
+                        <div class="project-image">
+                            <div class="wrapper"></div>
+                            <img src="img\abror-alifiano-GbVazUBOsyE-unsplash.jpg" alt="Project 2">
                         </div>
-                    </div>
+                    </a>
                     <div class="project-content">
                         <h3>LensFood</h3>
                         <p>A cloud based food calorie tracker and workout recommendation app for Android.</p>
@@ -346,13 +341,12 @@
                 </div>
 
                  <div class="project-card">
-                    <div class="project-image">
-                        <img src="img\bady-abbas-67GC0YaeGQc-unsplash.jpg" alt="Project 3">
-                        <div class="project-overlay">
-                            <!-- <a href="#" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i></a> -->
-                            <a href="https://github.com/davinsyabanp/SakuKu" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/davinsyabanp/SakuKu" target="_blank" class="project-image-link">
+                        <div class="project-image">
+                            <div class="wrapper"></div>
+                            <img src="img\bady-abbas-67GC0YaeGQc-unsplash.jpg" alt="Project 3">
                         </div>
-                    </div>
+                    </a>
                     <div class="project-content">
                         <h3>SakuKu</h3>
                         <p>A personal finance app designed specifically for students living away from home in Indonesia. This app helps students manage, view, and monitor their expenses easily.</p>
@@ -371,7 +365,7 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <h2 class="section-title contact">Get In Touch</h2>
             <div class="contact-content">
                 <div class="contact-info">
                     <h3>Let's Connect</h3>

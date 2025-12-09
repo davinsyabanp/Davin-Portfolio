@@ -1,3 +1,43 @@
+// Theme Toggle Functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const html = document.documentElement;
+
+    // Get theme from localStorage or default to dark
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    html.setAttribute('data-theme', currentTheme);
+    updateThemeIcon(currentTheme);
+
+    // Toggle theme function
+    function toggleTheme() {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+    }
+
+    // Update theme icon
+    function updateThemeIcon(theme) {
+        if (themeIcon) {
+            if (theme === 'light') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        }
+    }
+
+    // Add event listener to theme toggle button
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+});
+
 // Scroll Progress Bar
 window.addEventListener('scroll', () => {
     const scrollProgress = document.querySelector('.scroll-progress');
@@ -40,6 +80,15 @@ const navbar = document.querySelector('.navbar');
 let lastScrollTop = 0;
 let scrollThreshold = 5; // Minimum scroll amount to trigger hide/show
 
+// Initialize navbar transparency on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const hero = document.querySelector('.hero');
+    const heroHeight = hero ? hero.offsetHeight : window.innerHeight;
+    if (window.pageYOffset < heroHeight - 100) {
+        navbar.classList.add('navbar-transparent');
+    }
+});
+
 hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
     
@@ -75,11 +124,24 @@ navLinks.forEach(link => {
 // Hide/Show navbar on scroll
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    const hero = document.querySelector('.hero');
+    const heroHeight = hero ? hero.offsetHeight : window.innerHeight;
+
+    // Make navbar transparent when in hero section
+    if (currentScroll < heroHeight - 100) {
+        navbar.classList.add('navbar-transparent');
+        navbar.style.boxShadow = 'none';
+    } else {
+        navbar.classList.remove('navbar-transparent');
+    }
 
     // Don't hide navbar at the very top of the page
     if (currentScroll <= 100) {
         navbar.classList.remove('navbar-hidden');
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        // Only add shadow if not in hero section
+        if (currentScroll >= heroHeight - 100) {
+            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        }
     } else {
         // Scrolling down
         if (currentScroll > lastScrollTop && currentScroll > scrollThreshold) {
@@ -167,38 +229,7 @@ document.querySelectorAll('.project-card, .skill-category').forEach(el => {
     observer.observe(el);
 });
 
-// Contact Form Handling
-const contactForm = document.getElementById('contactForm');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
-
-    // Form validation
-    if (!name || !email || !subject || !message) {
-        alert('Please fill in all fields');
-        return;
-    }
-
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('Please enter a valid email address');
-        return;
-    }
-
-    // Here you would typically send the form data to a server
-    // For now, we'll just show a success message
-    alert('Thank you for your message! I will get back to you soon.');
-    
-    // Reset form
-    contactForm.reset();
-});
+// Contact Form Handling (removed - no form in HTML)
 
 // Type writer effect for hero title (optional enhancement)
 const heroTitle = document.querySelector('.hero-title');
